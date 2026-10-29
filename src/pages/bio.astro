@@ -1,0 +1,23 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContentSection from '../components/ContentSection.astro';
+import ProfileLinks from '../components/ProfileLinks.astro';
+import SiteImage from '../components/SiteImage.astro';
+import { getPage, getSite } from '../lib/content';
+const entry = await getPage('bio');
+const { data: page } = entry;
+const { Content } = await render(entry);
+const site = await getSite();
+---
+<BaseLayout title={`${page.title} · ${site.name}`} description={page.description}>
+<div class="inner-page editorial-page">
+  <header class="page-intro"><h1>{page.title}</h1><ProfileLinks /></header>
+  <div id="biography" class:list={['about-body', { 'with-portrait': page.portrait }]}><div class="prose"><Content /></div>
+    {page.portrait && <div class="about-portrait"><SiteImage src={page.portrait} alt={page.portraitAlt} maxWidth={640} sizes="(max-width: 380px) calc(100vw - 40px), 280px" priority /></div>}
+  </div>
+  <ContentSection id="contact" title={page.contact.title}><div class="prose contact-address">
+    <address><strong>{page.contact.office}</strong><br />{page.contact.address.map((line) => <>{line}<br /></>)}<a href={`mailto:${site.email}`}>{site.email}</a></address>
+  </div></ContentSection>
+</div>
+</BaseLayout>

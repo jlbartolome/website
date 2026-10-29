@@ -1,0 +1,46 @@
+name: Check website
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: check-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  ASTRO_TELEMETRY_DISABLED: '1'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run repo:check
+      - run: npm run check
+      - run: npm run test:content
+      - name: Check the domain-root build
+        run: |
+          npm run build
+          npm run verify
+          npm run release:check
+      - name: Check a project-subpath build
+        run: |
+          npm run build
+          npm run verify
+          npm run release:check
+        env:
+          SITE_URL: https://example.github.io
+          BASE_PATH: /jon-research-site

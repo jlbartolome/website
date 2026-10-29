@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="160" viewBox="0 0 240 160" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <title>Materials design</title>
+  <desc>A crystal cell beside tuning controls, representing the adjustment of structure and interactions to shape material properties.</desc>
+  <path d="m29 55 46-27 46 27-46 27-46-27Z" fill="#EFF8F2"/>
+  <g stroke="#626B66" stroke-width="1.8">
+    <path d="m29 55 46-27 46 27v52l-46 27-46-27V55Z"/>
+    <path d="m29 55 46 27 46-27M75 82v52"/>
+    <path d="M75 28v52m-46 27 46-27 46 27" stroke="#DFE6E1" stroke-dasharray="3 5"/>
+  </g>
+  <g fill="#FFFFFF" stroke="#626B66" stroke-width="1.8">
+    <circle cx="75" cy="28" r="4"/><circle cx="29" cy="55" r="4"/><circle cx="121" cy="55" r="4"/>
+    <circle cx="29" cy="107" r="4"/><circle cx="121" cy="107" r="4"/><circle cx="75" cy="134" r="4"/>
+  </g>
+  <circle cx="75" cy="82" r="6" fill="#5FD790" stroke="#216247" stroke-width="1.8"/>
+  <path d="M150 48h65m-65 33h65m-65 33h65" stroke="#626B66" stroke-width="1.8"/>
+  <g fill="#FFFFFF" stroke="#216247" stroke-width="2">
+    <circle cx="170" cy="48" r="6"/><circle cx="199" cy="81" r="6"/><circle cx="180" cy="114" r="6"/>
+  </g>
+</svg>

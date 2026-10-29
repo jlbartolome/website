@@ -1,0 +1,17 @@
+---
+import { getCollection, render } from 'astro:content';
+import ContentSection from '../components/ContentSection.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPage, getSite, byOrder } from '../lib/content';
+const { data: page } = await getPage('join-us');
+const site = await getSite();
+const entries = (await getCollection('opportunities', ({ data }) => !data.draft)).sort(byOrder);
+const sections = await Promise.all(entries.map(async (entry) => ({ ...entry, ...(await render(entry)) })));
+---
+<BaseLayout title={`${page.title} · ${site.name}`} description={page.description}>
+<div class="inner-page editorial-page">
+<header class="page-intro"><h1>{page.title}</h1>{page.lead && <p class="lead">{page.lead}</p>}</header>
+{sections.map(({ id, data, Content }) => <ContentSection id={id} title={data.title}><div class="prose"><Content /></div></ContentSection>)}
+<div class="page-action"><a class="research-link" href={`mailto:${site.email}`}>{page.actionLabel} <span aria-hidden="true">↗</span></a></div>
+</div>
+</BaseLayout>

@@ -1,0 +1,18 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import ScientificText from './ScientificText.astro';
+import { contentHref } from '../lib/content';
+interface Props { items: (CollectionEntry<'workshops'> | CollectionEntry<'outreach'>)[] }
+const items = await Promise.all(Astro.props.items.map(async (entry) => ({ ...entry, ...(await render(entry)) })));
+---
+<ul class="resource-list" role="list">
+  {items.map(({ data: item, body, Content }) => <li>
+    <div class="resource-meta">
+      {item.date && <time datetime={item.date}>{item.dateLabel}</time>}
+      <span><ScientificText text={item.detail} /></span>
+    </div>
+    <h3><ScientificText text={item.title} /></h3>
+    {body?.trim() && <div class="prose"><Content /></div>}
+    {item.links.length > 0 && <div class="resource-links">{item.links.map((link) => <a href={contentHref(link.href)} aria-label={`${link.label}: ${item.title}`}><ScientificText text={link.label} /> <span aria-hidden="true">↗</span></a>)}</div>}
+  </li>)}
+</ul>

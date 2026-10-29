@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { localUrl } from '../lib/urls';
+import { getPage, getSite } from '../lib/content';
+const { data: page } = await getPage('not-found');
+const site = await getSite();
+---
+<BaseLayout title={`${page.title} · ${site.name}`} noindex>
+  <section style="padding:80px 0;min-height:50vh">
+    <h1>{page.title}</h1>
+    <p class="intro">{page.intro}</p>
+    <a class="research-link" href={localUrl()}>{page.homeLabel} <span aria-hidden="true">↗</span></a>
+  </section>
+</BaseLayout>

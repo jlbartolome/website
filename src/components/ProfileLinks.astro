@@ -1,0 +1,15 @@
+---
+import { getSite } from '../lib/content';
+const site = await getSite();
+const { profiles } = site;
+---
+<ul class="profile-links" role="list" aria-label={site.profilesLabel}>
+  {profiles.map((profile) => <li><a href={profile.href}>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      {profile.icon === 'identity' && <><rect x="3" y="4" width="18" height="16" rx="2" /><circle cx="8" cy="10" r="2" /><path d="M5 16c0-3 6-3 6 0m3-7h4m-4 4h4m-4 4h2" /></>}
+      {profile.icon === 'institution' && <><path d="m3 9 9-6 9 6H3Zm2 2v7m5-7v7m4-7v7m5-7v7M3 21h18" /></>}
+      {profile.icon === 'scholar' && <><path d="m2 9 10-5 10 5-10 5L2 9Zm4 2v6c4 3 8 3 12 0v-6m4-2v8" /></>}
+    </svg>
+    <span>{profile.name}</span>
+  </a></li>)}
+</ul>

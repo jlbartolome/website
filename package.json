@@ -1,0 +1,31 @@
+{
+  "name": "jon-quantum-materials",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.22.1 <25"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "check": "npm run content:check && astro check",
+    "build": "npm run content:check && astro build",
+    "preview": "astro preview",
+    "verify": "node scripts/verify-build.mjs",
+    "release:check": "node scripts/verify-build.mjs --release",
+    "content:check": "node scripts/verify-content.mjs",
+    "test:content": "node scripts/test-content-workflow.mjs",
+    "repo:check": "node scripts/verify-repository.mjs"
+  },
+  "dependencies": {
+    "astro": "7.4.2",
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.12",
+    "@astrojs/markdown-satteri": "0.4.5",
+    "@types/three": "0.186.0",
+    "typescript": "5.9.3",
+    "yaml": "2.9.1"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "source": "artwork/hero/website-hero.blend",
+  "output": "public/assets/quantum-orbitals-ehu.glb",
+  "bytes": 1075880,
+  "triangles": 66134,
+  "source_objects": [
+    {
+      "source": "Octahedron edge guides",
+      "vertices": 144,
+      "triangles": 144
+    },
+    {
+      "source": "Rotation ring 1",
+      "vertices": 1536,
+      "triangles": 3060
+    },
+    {
+      "source": "Rotation ring 2",
+      "vertices": 1536,
+      "triangles": 3060
+    },
+    {
+      "source": "Shape_IndexedFaceSet",
+      "vertices": 1123,
+      "triangles": 2242
+    },
+    {
+      "source": "Shape_IndexedFaceSet.003",
+      "vertices": 6740,
+      "triangles": 13456
+    },
+    {
+      "source": "Shape_IndexedFaceSet.005",
+      "vertices": 6,
+      "triangles": 8
+    },
+    {
+      "source": "Shape_IndexedFaceSet.006",
+      "vertices": 21586,
+      "triangles": 43116
+    },
+    {
+      "source": "Shape_IndexedFaceSet.001 \u00b7 diagram shaft",
+      "vertices": 48,
+      "triangles": 92
+    },
+    {
+      "source": "Shape_IndexedFaceSet.001 \u00b7 diagram head",
+      "vertices": 33,
+      "triangles": 62
+    },
+    {
+      "source": "Shape_IndexedFaceSet.001 \u00b7 diagram shaft.001",
+      "vertices": 48,
+      "triangles": 92
+    },
+    {
+      "source": "Shape_IndexedFaceSet.001 \u00b7 diagram head.001",
+      "vertices": 33,
+      "triangles": 62
+    },
+    {
+      "source": "Shape_IndexedFaceSet.001 \u00b7 diagram shaft.002",
+      "vertices": 48,
+      "triangles": 92
+    },
+    {
+      "source": "Shape_IndexedFaceSet.001 \u00b7 diagram head.002",
+      "vertices": 33,
+      "triangles": 62
+    },
+    {
+      "source": "Shape_IndexedFaceSet.001 \u00b7 diagram shaft.003",
+      "vertices": 48,
+      "triangles": 92
+    },
+    {
+      "source": "Shape_IndexedFaceSet.001 \u00b7 diagram head.003",
+      "vertices": 33,
+      "triangles": 62
+    },
+    {
+      "source": "Shape_IndexedFaceSet.001 \u00b7 diagram shaft.004",
+      "vertices": 48,
+      "triangles": 92
+    },
+    {
+      "source": "Shape_IndexedFaceSet.001 \u00b7 diagram head.004",
+      "vertices": 33,
+      "triangles": 62
+    },
+    {
+      "source": "Shape_IndexedFaceSet.001 \u00b7 diagram shaft.005",
+      "vertices": 48,
+      "triangles": 92
+    },
+    {
+      "source": "Shape_IndexedFaceSet.001 \u00b7 diagram head.005",
+      "vertices": 33,
+      "triangles": 62
+    },
+    {
+      "source": "Rotation direction 1",
+      "vertices": 33,
+      "triangles": 62
+    },
+    {
+      "source": "Rotation direction 2",
+      "vertices": 33,
+      "triangles": 62
+    }
+  ],
+  "meshes": 50,
+  "view_height": 13.1810302734375,
+  "textures": 0,
+  "shading": "Baked linear vertex colors with satin surfaces and glass-like facets; KHR_materials_unlit",
+  "hidden_source_groups_exported": false
+}

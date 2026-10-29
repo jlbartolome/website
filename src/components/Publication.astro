@@ -1,0 +1,20 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+import { getSite } from '../lib/content';
+const { publicationLabels: labels } = await getSite();
+import ScientificText from './ScientificText.astro';
+interface Props { entry: CollectionEntry<'publications'>; anchor?: boolean; heading?: 'h3' | 'h4' }
+const { entry: { id, data }, anchor = false, heading: Heading = 'h3' } = Astro.props;
+const { Content } = await render(Astro.props.entry);
+---
+<article class="publication" id={anchor ? id : undefined}>
+  <Heading><ScientificText text={data.title} /></Heading>
+  <p class="authors">{data.authors.join(', ')}</p>
+  <p class="citation"><ScientificText text={data.citation || `${labels.preprint} (${data.year})`} /></p>
+  {Astro.props.entry.body?.trim() && <div class="prose"><Content /></div>}
+  <div class="paper-links">
+    {data.doi && <a href={data.doi} aria-label={`${labels.publisherAccessible}: ${data.title}`}>{labels.publisher}</a>}
+    {data.arxiv && <a href={data.arxiv} aria-label={`${labels.arxivAccessible}: ${data.title}`}>{labels.arxiv}</a>}
+  </div>
+</article>

@@ -1,0 +1,30 @@
+# Installed dependencies and generated website output
+node_modules/
+dist/
+.astro/
+coverage/
+
+# Local environment, credentials and tool state
+.env
+.env.*
+!.env.example
+.openai/
+.codex/
+.agents/
+.aws/
+.npmrc
+.vscode/
+.idea/
+
+# OS, editor and Blender/Python backup files
+.DS_Store
+*.log
+*.swp
+*~
+*.blend[0-9]*
+__pycache__/
+*.py[cod]
+
+# Local design/source archives: preserved, but not needed in a fresh clone
+/reference/
+/docs/source-snapshot/

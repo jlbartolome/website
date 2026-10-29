@@ -1,0 +1,14 @@
+---
+import { getPage, contentHref } from '../lib/content';
+const { data } = await getPage('home');
+const splitAt = data.keepTogether && data.intro.endsWith(data.keepTogether) ? data.intro.length - data.keepTogether.length : -1;
+import HeroModel from './HeroModel.astro';
+---
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <h1 id="hero-title">{data.headingLines.map((line) => <span>{line}</span>)}</h1>
+    <p class="intro">{splitAt >= 0 ? <>{data.intro.slice(0, splitAt)}<span class="hero-phrase">{data.keepTogether}</span></> : data.intro}</p>
+    <a class="research-link" href={contentHref(data.researchLink.href)}>{data.researchLink.label} <span aria-hidden="true">↗</span></a>
+  </div>
+  <HeroModel />
+</section>

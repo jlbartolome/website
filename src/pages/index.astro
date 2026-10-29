@@ -1,0 +1,7 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import NewsList from '../components/NewsList.astro';
+import { localUrl } from '../lib/urls';
+---
+<BaseLayout canonicalPath={localUrl()}><Hero /><NewsList /></BaseLayout>

@@ -1,0 +1,36 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Publication from '../components/Publication.astro';
+import { getPage, getSite, byOrder, contentHref } from '../lib/content';
+const { data: page } = await getPage('research');
+const site = await getSite();
+const entries = (await getCollection('research', ({ data }) => !data.draft)).sort(byOrder);
+const themes = await Promise.all(entries.map(async (entry) => ({ ...entry, ...(await render(entry)), papers: await Promise.all(entry.data.papers.map(async (ref) => {
+  const paper = await getEntry(ref);
+  if (!paper || paper.data.draft) throw new Error(`Research theme ${entry.id} selects missing or draft publication: ${ref.id}. Update papers in src/content/research/${entry.id}.md.`);
+  return paper;
+})) })));
+---
+<BaseLayout title={`${page.title} · ${site.name}`} description={page.description}>
+  <div class="inner-page">
+    <header class="page-intro">
+      <h1>{page.title}</h1>
+      {page.lead && <p class="lead">{page.lead}</p>}
+      <nav class="section-links" aria-label={page.sectionNavLabel}>{themes.map(({ id, data }) => <a href={`#${id}`}>{data.title}</a>)}</nav>
+    </header>
+    {themes.map(({ id, data, Content, papers }) => <section class="research-theme" id={id} aria-labelledby={`${id}-title`}>
+      <div class="research-label">
+        <h2 id={`${id}-title`}>{data.title}</h2>
+        {data.icon && <img class="research-icon" src={contentHref(data.icon)} alt={data.iconAlt} width="240" height="160" loading="lazy" decoding="async" />}
+      </div>
+      <div class="research-body"><div class="prose"><Content /></div>
+        {papers.length > 0 && <section class="selected-publications" aria-labelledby={`${id}-papers`}>
+          <h3 id={`${id}-papers`}>{page.selectedPublicationsLabel}</h3>
+          {papers.map((entry) => <Publication entry={entry} heading="h4" />)}
+        </section>}
+      </div>
+    </section>)}
+    <div class="section-links">{page.links.map((link) => <a href={contentHref(link.href)}>{link.label}</a>)}</div>
+  </div>
+</BaseLayout>

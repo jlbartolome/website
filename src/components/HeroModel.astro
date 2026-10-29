@@ -1,0 +1,105 @@
+---
+import { localUrl } from '../lib/urls';
+import { getPage } from '../lib/content';
+const { data: { illustration } } = await getPage('home');
+
+const controls = [
+  { action: 'left', label: illustration.controls.left, path: 'm14 6-6 6 6 6' },
+  { action: 'up', label: illustration.controls.up, path: 'm6 14 6-6 6 6' },
+  { action: 'reset', label: illustration.controls.reset, path: 'M4 10a8 8 0 1 1 0 5M4 4v6h6' },
+  { action: 'down', label: illustration.controls.down, path: 'm6 10 6 6 6-6' },
+  { action: 'right', label: illustration.controls.right, path: 'm10 6 6 6-6 6' },
+];
+---
+<interactive-hero class="hero-art" data-model={localUrl('assets/quantum-orbitals-ehu.glb')} data-reset-status={illustration.resetStatus} data-fallback-status={illustration.fallbackStatus}>
+  <div class="hero-stage" aria-hidden="true" aria-label={illustration.label} aria-describedby="hero-model-help" role="group">
+    <img id="hero-image" src={localUrl('assets/quantum-orbitals-ehu.png')} alt="" fetchpriority="high" width="1448" height="1086" draggable="false" />
+    <canvas class="hero-canvas" aria-hidden="true"></canvas>
+  </div>
+  <div class="hero-model-toolbar">
+    <div class="hero-model-tools" hidden>
+      <div class="hero-model-buttons" role="group" aria-label={illustration.controlsLabel}>
+        {controls.map(({ action, label, path }) => (
+          <button type="button" data-action={action} aria-label={label} title={label}>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={path} /></svg>
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+  <p id="hero-model-help" hidden>{illustration.help}</p>
+  <span class="model-sr-only" aria-live="polite" data-model-status></span>
+</interactive-hero>
+
+<script>
+  class InteractiveHero extends HTMLElement {
+    private observer?: IntersectionObserver;
+    private disposeViewer?: () => void;
+    private loading = false;
+
+    connectedCallback() {
+      if ('IntersectionObserver' in window) {
+        this.observer = new IntersectionObserver((entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            this.observer?.disconnect();
+            void this.loadViewer();
+          }
+        }, { rootMargin: '200px' });
+        this.observer.observe(this);
+      } else {
+        void this.loadViewer();
+      }
+    }
+
+    private async loadViewer() {
+      if (this.loading) return;
+      this.loading = true;
+      try {
+        const { mountHeroModel } = await import('../scripts/hero-model');
+        if (!this.isConnected) return;
+        const dispose = await mountHeroModel(this);
+        if (this.isConnected) this.disposeViewer = dispose;
+        else dispose();
+      } catch {
+        // The supplied PNG is already visible. Unsupported WebGL or a failed
+        // model download must never leave an empty hero or nonworking controls.
+      }
+    }
+
+    disconnectedCallback() {
+      this.observer?.disconnect();
+      this.disposeViewer?.();
+      this.disposeViewer = undefined;
+      this.loading = false;
+    }
+  }
+  if (!customElements.get('interactive-hero')) customElements.define('interactive-hero', InteractiveHero);
+</script>
+
+<style>
+  interactive-hero.hero-art { display:flex;flex-direction:column;pointer-events:auto }
+  .hero-stage { position:relative;flex:1;min-height:0;width:100%;touch-action:pan-y pinch-zoom;border-radius:4px }
+  .hero-stage img, .hero-canvas { position:absolute;inset:0;display:block;width:100%;height:100% }
+  .hero-stage img { pointer-events:none;user-select:none }
+  .hero-canvas { visibility:hidden }
+  .is-ready .hero-stage { cursor:grab }
+  .is-dragging .hero-stage { cursor:grabbing }
+  .is-interacting .hero-canvas { visibility:visible }
+  .is-interacting .hero-stage img { visibility:hidden }
+  .hero-stage:focus-visible { outline:2px solid var(--accent);outline-offset:3px }
+  .hero-model-toolbar { flex:none;min-height:44px;width:100%;display:flex;justify-content:center }
+  .hero-model-tools { display:flex;align-items:center;justify-content:center }
+  .hero-model-tools[hidden] { display:none }
+  .hero-model-buttons { display:flex;align-items:center }
+  .hero-model-buttons button { display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;border-radius:4px;background:transparent;color:var(--muted) }
+  .hero-model-buttons button:hover, .hero-model-buttons button:focus-visible { color:var(--accent);background:var(--surface) }
+  .model-sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0 }
+  @media(max-width:760px) {
+    :global(html .hero) interactive-hero.hero-art { aspect-ratio:auto }
+    .hero-stage { flex:none;aspect-ratio:4/3 }
+  }
+  @media(print) {
+    .hero-canvas, .hero-model-toolbar { display:none }
+    .is-interacting .hero-stage img { visibility:visible }
+  }
+</style>

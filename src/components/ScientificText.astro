@@ -1,0 +1,7 @@
+---
+// Keep source strings plain and escaped; format Latin terminology at build time.
+interface Props { text: string }
+const { text } = Astro.props;
+const parts = text.split(/(\bab\s+initio\b)/gi);
+---
+{parts.map((part) => /^ab\s+initio$/i.test(part) ? <i lang="la">{part}</i> : part)}

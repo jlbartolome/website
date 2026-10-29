@@ -1,0 +1,189 @@
+{
+  "source_base_geometry_unchanged": true,
+  "source_meshes": {
+    "Shape_IndexedFaceSet": "384c6a0340180745d891ac14ddb8eed633da4eea71f6f0206dbc84f3cb4f5a0a",
+    "Shape_IndexedFaceSet.001": "fa7a0502ff14f5df08dd33b546860b09c45aedf8d9ae142ea09aff3ce5d6bfbc",
+    "Shape_IndexedFaceSet.002": "9f16f1fc48db7792fe536b12db01b9ac3bc09196f5579b6a3f611d4c9f83dc3e",
+    "Shape_IndexedFaceSet.003": "f4dd5f414cf6af61e6de97138e63767725022df42a0297b7ee4456df73838be4",
+    "Shape_IndexedFaceSet.004": "21cc89324b5d229e2b0f057129c5aa6124f9930a2d8b947b35a77800faa4c869",
+    "Shape_IndexedFaceSet.005": "37e6d96c7c8da1947fb9c26d8481b566c58a2692a14a62cc90dae02ef2625c43",
+    "Shape_IndexedFaceSet.006": "ac89320acf7858292f740c40eb3f6c447becf898469cb0a77804cd481a6def07"
+  },
+  "roles": {
+    "Shape_IndexedFaceSet": "center",
+    "Shape_IndexedFaceSet.001": "anion_arrows",
+    "Shape_IndexedFaceSet.002": "corner_arrows",
+    "Shape_IndexedFaceSet.003": "anions",
+    "Shape_IndexedFaceSet.004": "corners",
+    "Shape_IndexedFaceSet.005": "faces",
+    "Shape_IndexedFaceSet.006": "orbitals"
+  },
+  "added_guides": "12 curves following the existing octahedron edges",
+  "arrow_vectors": {
+    "anion_arrows": [
+      {
+        "start": [
+          0.38253000378608704,
+          8.16894726085593e-07,
+          2.868252992630005
+        ],
+        "tip": [
+          -2.629549980163574,
+          0.0007803433109074831,
+          5.653353214263916
+        ]
+      },
+      {
+        "start": [
+          -2.529928622152511e-07,
+          2.8939011096954346,
+          2.184834642093847e-07
+        ],
+        "tip": [
+          -0.01160045899450779,
+          5.249680995941162,
+          -0.004999603610485792
+        ]
+      },
+      {
+        "start": [
+          2.868252992630005,
+          2.7963076831838407e-07,
+          -0.38252899050712585
+        ],
+        "tip": [
+          5.647273063659668,
+          0.006180295720696449,
+          2.6257309913635254
+        ]
+      },
+      {
+        "start": [
+          -0.38253000378608704,
+          -8.16894726085593e-07,
+          -2.868252992630005
+        ],
+        "tip": [
+          2.640929937362671,
+          -0.0023403423838317394,
+          -5.649872779846191
+        ]
+      },
+      {
+        "start": [
+          -2.868252992630005,
+          -2.7963076831838407e-07,
+          0.38252899050712585
+        ],
+        "tip": [
+          -5.646052837371826,
+          -0.00956029538065195,
+          -2.626950979232788
+        ]
+      },
+      {
+        "start": [
+          2.5299294748037937e-07,
+          -2.893902063369751,
+          -2.1848353526365827e-07
+        ],
+        "tip": [
+          0.00462045893073082,
+          -5.251242160797119,
+          0.006659603677690029
+        ]
+      }
+    ]
+  },
+  "arrow_shaft_radius": 0.11,
+  "hidden_groups": [
+    "eight corner atoms",
+    "eight corner displacement arrows"
+  ],
+  "orbital_display_modifiers": [
+    "Website rounding shape key: Laplacian smoothing (24 iterations, 0.65), normalized to each original lobe bounding box",
+    "Catmull-Clark subdivision: render level 2"
+  ],
+  "rotation_rings": {
+    "radii": [
+      4.8,
+      5.6
+    ],
+    "axial_y": -4.95,
+    "direction_markers": 2
+  },
+  "octahedron_edge_radius": 0.04,
+  "octahedron_face_opacity": 0.34,
+  "octahedron_face_color": "#D5E6DE",
+  "octahedron_face_relief": 0.14,
+  "surface_finish": "Satin orbital surfaces; glass-like facets and polished edges",
+  "materials": {
+    "center": {
+      "color": "#5FD790",
+      "opacity": 1.0,
+      "sheen": 0.22,
+      "highlight_power": 18
+    },
+    "anion_arrows": {
+      "color": "#6F9580",
+      "opacity": 1.0,
+      "sheen": 0.1,
+      "highlight_power": 18
+    },
+    "corner_arrows": {
+      "color": "#B4C2B9",
+      "opacity": 1.0,
+      "sheen": 0,
+      "highlight_power": 18
+    },
+    "anions": {
+      "color": "#9EC3AD",
+      "opacity": 1.0,
+      "sheen": 0.3,
+      "highlight_power": 18
+    },
+    "corners": {
+      "color": "#D8E3DC",
+      "opacity": 1.0,
+      "sheen": 0,
+      "highlight_power": 18
+    },
+    "faces": {
+      "color": "#D5E6DE",
+      "opacity": 0.34,
+      "sheen": 0.8,
+      "highlight_power": 5
+    },
+    "orbitals": {
+      "color": "#AED8BF",
+      "opacity": 0.88,
+      "sheen": 0.26,
+      "highlight_power": 14
+    },
+    "edges": {
+      "color": "#94ACA0",
+      "opacity": 1.0,
+      "sheen": 0.7,
+      "highlight_power": 40
+    },
+    "inner_ring": {
+      "color": "#AED8BF",
+      "opacity": 1.0,
+      "sheen": 0,
+      "highlight_power": 18
+    },
+    "outer_ring": {
+      "color": "#AED8BF",
+      "opacity": 1.0,
+      "sheen": 0,
+      "highlight_power": 18
+    }
+  },
+  "engine": "Cycles CPU",
+  "projection": "orthographic",
+  "resolution": [
+    1448,
+    1086
+  ],
+  "blender_version": "5.2.3 LTS"
+}

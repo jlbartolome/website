@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import ContentSection from '../components/ContentSection.astro';
+import ResourceList from '../components/ResourceList.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { localUrl } from '../lib/urls';
+import { getPage, getSite, byOrder } from '../lib/content';
+const { data: page } = await getPage('outreach');
+const site = await getSite();
+const entries = (await getCollection('outreach', ({ data }) => !data.draft)).sort(byOrder);
+for (const entry of entries) {
+  if (!page.sections.some((section) => section.id === entry.data.section)) throw new Error(`Outreach item ${entry.id} has unknown section: ${entry.data.section}. Update src/content/pages/outreach.md.`);
+}
+---
+<BaseLayout title={`${page.title} · ${site.name}`} description={page.description}>
+<div class="inner-page editorial-page">
+<header class="page-intro">
+  <h1>{page.title}</h1>
+  {page.lead && <p class="lead">{page.lead}</p>}
+  <nav class="section-links" aria-label={page.sectionNavLabel}>
+    {page.sections.map((section) => <a href={localUrl(`outreach/#${section.id}`)}>{section.title}</a>)}
+  </nav>
+</header>
+{page.sections.map((section) => <ContentSection id={section.id} title={section.title}><ResourceList items={entries.filter(({ data }) => data.section === section.id)} /></ContentSection>)}
+</div>
+</BaseLayout>

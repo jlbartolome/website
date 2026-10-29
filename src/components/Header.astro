@@ -1,0 +1,14 @@
+---
+import { getSite, contentHref } from '../lib/content';
+const site = await getSite();
+import { localUrl } from '../lib/urls';
+---
+<header class="site-header">
+  <div class="site-identity">
+    <a class="wordmark" href={localUrl()}>{site.name}</a>
+    <p class="header-affiliation">{site.affiliation[0]}<span>{site.affiliation[1]}</span></p>
+  </div>
+  <nav aria-label={site.navigationLabel}>
+    {site.navigation.map((link) => <a href={contentHref(link.href)} aria-current={Astro.url.pathname === contentHref(link.href) ? 'page' : undefined}>{link.label}</a>)}
+  </nav>
+</header>

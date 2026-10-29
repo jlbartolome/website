@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="160" viewBox="0 0 240 160" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <title>Many-body physics</title>
+  <desc>A carrier coupled to nearby lattice distortions; a schematic polaron, not a calculated displacement field.</desc>
+  <ellipse cx="120" cy="80" rx="43" ry="46" fill="#EFF8F2"/>
+  <g stroke="#DFE6E1" stroke-width="1.5" stroke-dasharray="3 5">
+    <path d="M32 34h176M32 80h176M32 126h176M32 34v92m44-92v92m44-92v92m44-92v92m44-92v92"/>
+  </g>
+  <g stroke="#626B66" stroke-width="1.8">
+    <path d="M32 34Q76 35 120 44q44-9 88-10M32 80h36m104 0h36M32 126q44-1 88-10 44 9 88 10"/>
+    <path d="M32 34v92M76 34q-16 46 0 92M164 34q16 46 0 92M208 34v92"/>
+  </g>
+  <g fill="#FFFFFF" stroke="#626B66" stroke-width="1.8">
+    <circle cx="32" cy="34" r="4"/><circle cx="76" cy="36" r="4"/><circle cx="164" cy="36" r="4"/><circle cx="208" cy="34" r="4"/>
+    <circle cx="32" cy="80" r="4"/><circle cx="208" cy="80" r="4"/>
+    <circle cx="32" cy="126" r="4"/><circle cx="76" cy="124" r="4"/><circle cx="164" cy="124" r="4"/><circle cx="208" cy="126" r="4"/>
+  </g>
+  <g stroke="#216247" stroke-width="1.8">
+    <path d="M120 51v14m0 30v14M76 80h27m34 0h27" stroke-dasharray="2 4"/>
+    <circle cx="120" cy="44" r="4.5" fill="#FFFFFF"/><circle cx="120" cy="116" r="4.5" fill="#FFFFFF"/>
+    <circle cx="68" cy="80" r="4.5" fill="#FFFFFF"/><circle cx="172" cy="80" r="4.5" fill="#FFFFFF"/>
+    <circle cx="120" cy="80" r="8" fill="#5FD790"/>
+    <path d="M117 80h6M108 28l12 6 12-6m-24 104 12-6 12 6"/>
+  </g>
+</svg>

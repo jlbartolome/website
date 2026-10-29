@@ -1,0 +1,20 @@
+---
+import { getCollection, render } from 'astro:content';
+import ScientificText from './ScientificText.astro';
+import { getPage, contentHref } from '../lib/content';
+const { data: home } = await getPage('home');
+const entries = (await getCollection('news', ({ data }) => !data.draft)).sort((a, b) => b.data.date.getTime() - a.data.date.getTime() || a.id.localeCompare(b.id)).slice(0, home.newsLimit);
+const items = await Promise.all(entries.map(async (entry) => ({ ...entry, ...(await render(entry)) })));
+const month = new Intl.DateTimeFormat('en', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+---
+<section class="news" aria-labelledby="news-title">
+  <h2 id="news-title">{home.newsTitle}</h2>
+  <div class="news-list">
+    {items.map(({ data, Content }) => (
+      <article class:list={['news-item', { award: data.kind === 'award' }]}>
+        <time datetime={data.date.toISOString().slice(0, 10)}>{month.format(data.date)}</time>
+        <div><h3><a href={contentHref(data.href)}><ScientificText text={data.title} /><span aria-hidden="true"> ↗</span></a></h3><Content /></div>
+      </article>
+    ))}
+  </div>
+</section>
