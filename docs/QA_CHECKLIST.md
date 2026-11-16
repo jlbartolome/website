@@ -52,7 +52,9 @@ or still images does not complete these checks, so the boxes above remain open.
 
 - [ ] Read the current text, affiliation, postal address and news.
 - [ ] Recheck DOI, arXiv and profile links. Check whether final journal citations
-  are available for the two accepted preprints and the article in press.
+  are available for the two accepted preprints.
+- [x] Extreme-Band-Gap's final publisher title and citation, npj Computational
+  Materials 12, 385 (2026), were verified against Nature on 16 November 2026.
 - [x] INTW uses the verified year 2026. The incorrect arXiv link to the review has
   been removed; a genuine optional INTW preprint link remains unknown.
 - [ ] Check that the two official EHU course links use the intended academic year.

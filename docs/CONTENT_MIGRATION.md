@@ -75,9 +75,10 @@ moving each record to its own Markdown file. Research selections reuse those rec
   review and is omitted. A verified INTW preprint URL remains unknown; do not guess.
 - The polarons review and Watching Polarons retain acceptance notes; recheck their
   publisher records for final journal citations before launch.
-- Extreme-Band-Gap is recorded as a 2026 journal article in press using the
-  owner-supplied Nature DOI. Its final volume/article number was not available in
-  the retrieved record; do not infer it.
+- Extreme-Band-Gap was rechecked against the owner-supplied Nature record on
+  **16 November 2026**. Its final citation is **npj Computational Materials 12,
+  385 (2026)**, with the version of record dated **12 November 2026**. The entry
+  uses the final publisher title and citation, retaining its DOI and arXiv links.
 
 ## Current images and scientific schematics
 

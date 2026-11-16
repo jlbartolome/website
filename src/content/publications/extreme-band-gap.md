@@ -1,5 +1,5 @@
 ---
-title: Extreme-Band-Gap Semiconductors with Shallow Dopants and Mobile Carriers
+title: Extreme-band-gap semiconductors with shallow dopants and mobile carriers
 authors:
   - Sieun Chae
   - Nocona Sanders
@@ -14,10 +14,10 @@ authors:
   - Emmanouil Kioupakis
 year: 2026
 status: published
-citation: npj Computational Materials (2026), article in press.
+citation: npj Computational Materials 12, 385 (2026)
 doi: https://doi.org/10.1038/s41524-026-02173-z
 arxiv: https://arxiv.org/abs/2506.07284
 source: https://www.nature.com/articles/s41524-026-02173-z
-sourceChecked: '2026-10-26'
+sourceChecked: '2026-11-16'
 order: 30
 ---

@@ -17,15 +17,15 @@ details supplied by the publisher and available at
 year, volume and article number. Each retained arXiv link was opened and matched
 by title and authors.
 
-The table gives the DOI and arXiv links used for these checks. All rows share the
-check date above. Each publication's Markdown file also records the main source
-in `source` and the date in `sourceChecked`. Update those fields when you verify
-a record again.
+The table gives the DOI and arXiv links used for these checks. Rows use the
+check date above unless a later check is noted. Each publication's Markdown file
+also records the main source in `source` and the date in `sourceChecked`. Update
+those fields when you verify a record again.
 
 | Publication filename (without .md) | Primary DOI / publisher record | arXiv record | Result |
 |---|---|---|---|
 | `polarons-first-principles` | [RMP accepted paper](https://journals.aps.org/rmp/accepted/10.1103/pkz4-pqhv) | [2512.06176](https://arxiv.org/abs/2512.06176) | Posted 5 Dec 2025; accepted 19 Aug 2026. Retained as preprint with explicit acceptance citation and publisher DOI. |
-| `extreme-band-gap` | [npj Computational Materials](https://www.nature.com/articles/s41524-026-02173-z) · [DOI](https://doi.org/10.1038/s41524-026-02173-z) | [2506.07284](https://arxiv.org/abs/2506.07284) | Nature confirms acceptance 27 May 2026 and online publication 21 Jul 2026; 11 authors match. Listed under 2026 journal articles as an article in press, with DOI and arXiv retained. Final volume/article number not supplied. |
+| `extreme-band-gap` | [npj Computational Materials](https://www.nature.com/articles/s41524-026-02173-z) · [DOI](https://doi.org/10.1038/s41524-026-02173-z) | [2506.07284](https://arxiv.org/abs/2506.07284) | Rechecked 16 Nov 2026: npj Computational Materials 12, 385 (2026); 11 authors match. Published 21 Jul 2026; version of record 12 Nov 2026. Final publisher title and citation used; DOI and arXiv retained. |
 | `watching-polarons` | [PRL accepted paper](https://journals.aps.org/prl/accepted/10.1103/k3ng-gm5v) | [2601.21810](https://arxiv.org/abs/2601.21810) | Posted 29 Jan 2026; accepted 22 Oct 2026. Retained as preprint with explicit acceptance citation and publisher DOI. |
 | `supercell-polaron-comparison` | [10.1063/5.0308039](https://doi.org/10.1063/5.0308039) | [2511.01764](https://arxiv.org/abs/2511.01764) | J. Chem. Phys. 164, 064102 (2026); four authors verified. |
 | `symmetry-protected-polarons` | [10.1073/pnas.2514647123](https://doi.org/10.1073/pnas.2514647123) | [2601.17235](https://arxiv.org/abs/2601.17235) | PNAS 123, e2514647123 (2026); three authors verified. |
@@ -78,15 +78,14 @@ is a code dataset, not an arXiv substitute.
   For Extreme-Band-Gap, arXiv renders Jon's surname without the joining hyphen;
   the existing site's `Jon Lafuente-Bartolome` is retained as a spelling variant,
   without changing identity or author order.
-- The owner supplied the Nature record for Extreme-Band-Gap. Its indexed publisher
-  page was checked on 26 October 2026 and identifies a published online, accepted
-  manuscript awaiting the final version of record. Its verified publication date
-  supports the 2026 journal grouping; the citation explicitly says “article in
-  press.” No final volume or article number is inferred. Recheck those details
-  when the version of record is available.
-- Source title capitalization is retained except INTW's publisher title; spaces
-  and the Tl/Si(111) notation are normalized. No abstracts are copied into the
-  bibliography.
+- The owner supplied the Nature record for Extreme-Band-Gap. Rechecked on
+  **16 November 2026**, the publisher confirms **volume 12, article 385 (2026)**,
+  acceptance on **27 May 2026**, publication on **21 July 2026**, and the version
+  of record on **12 November 2026**. The entry uses the final publisher title and
+  citation in the 2026 journal grouping, with the existing DOI and arXiv links.
+- Source title capitalization is retained except for INTW and Extreme-Band-Gap,
+  which use their final publisher titles; spaces and the Tl/Si(111) notation are
+  normalized. No abstracts are copied into the bibliography.
 
 ## What these checks do and do not establish
 
